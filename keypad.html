@@ -1,0 +1,219 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Keypad Practice</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
+		<script src="https://use.fontawesome.com/3ec0a4d04e.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/3ec0a4d04e.css" media="all">
+		<style type="text/css">
+		body {
+			font-size: 18px;
+			font-weight: bold;
+			font-family: Helvetica, Arial, Sans-serif;
+			color: #000000;
+			margin: 0px;
+		}
+		#keypad_frame {
+			width: 240px;
+			padding: 8px;
+			padding-bottom: 20px;
+			margin: auto;
+			background-color: #888888;
+			border: 1px solid #000000;
+			border-radius: 7px;
+			box-shadow: 0px 6px 8px rgba(0,0,0,0.5), inset -3px 5px 8px rgba(255,255,255,0.5),  inset 3px -5px 8px rgba(0,0,0,0.5);
+		}
+		#display {
+			width: auto;
+			margin: 20px;
+		}
+		#display input {
+			width: 192px;
+			margin-top: 4px;
+			margin-bottom: 6px;
+			font-size: 1.5em;
+			background-color: #ccddee;
+			border: 1px solid #000000;
+			padding: 4px;
+			border-radius: 3px;
+			box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+		}
+		#keypad {
+			width: auto;
+			margin: auto;
+		}
+		#keypad table {
+			margin: auto;
+			display: table;
+			border-collapse: none;
+			border: none;
+			border-spacing: 4px;
+			text-align: center;
+		}
+		#keypad table td {
+			width: 60px;
+			height: 60px;
+			padding: 4px;
+			background-color: #333333;
+			border: 1px solid #000000;
+			color: #ffffff;
+			border-radius: 5px;
+			font-size: 2em;
+			box-shadow: 0px 3px 4px rgba(0,0,0,0.5), inset -1px 3px 2px rgba(255,255,255,0.5);
+		}
+		#keypad table td:hover {
+			background-color: #999999;
+			border-color: #ffffff;
+		}
+		#keypad table td.red {
+			background-color: #990000;
+			font-size: .8em;
+		}
+		#keypad table td.red:hover {
+			background-color: #cc0000;
+		}
+		#keypad table td.green {
+			background-color: #009900;
+			font-size: .8em;
+		}
+		#keypad table td.green:hover {
+			background-color: #00cc00;
+		}
+		#target {
+			width: 100%;
+			padding-top: 8px;
+			padding-bottom: 12px;
+			border-bottom: 1px solid #cccccc;
+			margin-bottom: 20px;
+			text-align: center;
+			font-weight: normal;
+			background-color: #eeeeee;
+		}
+		#target input {
+			background-color: #ccddee;
+			font-size: 1.5em;
+			border-radius: 5px;
+			padding: 4px;
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+		#target button {
+			display: inline-block;
+		}
+		#foot {
+			width: 100%;
+			padding-top: 8px;
+			padding-bottom: 120px;
+			border-top: 1px solid #cccccc;
+			margin-top: 40px;
+			font-weight: normal;
+			font-size: 11px;
+			color: #aaaaaa;
+			background-color: #eeeeee;
+		}
+		#foot .right_contact {
+			float: right;
+			margin-right: 20px;
+			text-align: right;
+		}
+		#foot a {
+			color: #aaaaaa;
+			text-decoration: none;
+		}
+		#foot a:hover {
+			color: #0066dd;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="target" data-target="">
+			Type in your number<br>
+			<input type="text" size="10" autofocus><br>
+			<button>Hide Number</button>
+		</div>
+		<div id="keypad_frame">
+			<div id="display">
+				<input type="text" size="10">
+			</div>
+			<div id="keypad" data-reset="true">
+				<table>
+					<tr>
+						<td>7</td><td>8</td><td>9</td>
+					</tr>
+					<tr>
+						<td>4</td><td>5</td><td>6</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td>
+					</tr>
+					<tr>
+						<td class="red">CLEAR</td><td>0</td><td class="green">RETURN</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="foot">
+			<div class="right_contact">
+				&copy; <a href="mailto:jay@mediagraphicdesign.com">Jay Raney</a>, <a href="http://www.mediagraphicdesign.com">Media Graphic Design</a><br>
+				<a href="https://www.facebook.com/jay.raney"><i class="fa fa-facebook-square fa-2x"></i></a>
+				<a href="https://www.linkedin.com/in/jraney"><i class="fa fa-linkedin-square fa-2x"></i></a>
+				<a href="https://plus.google.com/u/0/106446774998176966142"><i class="fa fa-google-plus-official fa-2x"></i></a>
+				<a href="https://github.com/jayraney"><i class="fa fa-github fa-2x"></i></a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+    		$('#target input').focus();
+		});
+		$("#target button").on("click", function() {
+			$('#target input').toggle();
+			$('#target button').html($('#target button').html() == 'Hide Number' ? 'Show Number' : 'Hide Number');
+		});
+		var timer;
+		$("#keypad table td").on("click", function() {
+			clearTimeout(timer);
+			if($("#keypad").attr("data-reset") == "true") { 
+				$("#display input").val("");
+				$("#keypad").attr("data-reset", "false");
+			}
+			t = $("#target input").val();
+			v = $("#display input").val();
+			n = $(this).html(); 
+			if(n == "CLEAR") {
+				x = v.slice(0,-1);
+			}
+			if(n == "RETURN") {
+				if(v == t) {
+					x = "";
+					$("#display input")
+					.val("Great Job!!!")
+					.animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50).animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50)
+					.animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50).animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50)
+					.animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50).animate({backgroundColor: '#00ff00'}, 200).animate({backgroundColor: '#ccddee'}, 50);
+					timer = setTimeout(function () { $("#display input").val("") }, 3000);
+				}
+				else {
+					x = "";
+					$("#display input").val("Try Again.")
+					.animate({backgroundColor: '#ff3333'}, 200).animate({backgroundColor: '#ccddee'}, 50).animate({backgroundColor: '#ff3333'}, 200).animate({backgroundColor: '#ccddee'}, 50)
+					.animate({backgroundColor: '#ff3333'}, 200).animate({backgroundColor: '#ccddee'}, 50).animate({backgroundColor: '#ff3333'}, 200).animate({backgroundColor: '#ccddee'}, 50);
+					timer = setTimeout(function () { $("#display input").val("") }, 3000);
+
+				}
+				$("#keypad").attr("data-reset", "true");
+			}
+			if((n != "RETURN") && (n != "CLEAR")) {
+				x = v+n;
+			}
+			if(n != "RETURN") {
+				$("#display input").val(x);
+			}
+		});
+	</script>
+</html>
